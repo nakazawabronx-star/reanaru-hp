@@ -158,12 +158,23 @@
     }
     .logo {
       font-family: 'Oswald', sans-serif;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: var(--white);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.14em;
       line-height: 1.2;
       flex-shrink: 0;
+      position: relative;
+      padding-bottom: 4px;
+    }
+    .logo::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--gold);
     }
     .logo span {
       display: block;
@@ -910,7 +921,7 @@
     <div class="container">
       <div class="header-inner">
         <a href="#" class="logo">
-          LEARNAL
+          REANARU
           <span>株式会社レアナル｜電気工事・内装仕上工事</span>
         </a>
         <nav class="pc-nav">
@@ -950,7 +961,7 @@
       <div class="hero-slide" style="background-image: url('images/hero-05.png')"></div>
     </div>
     <div class="hero-overlay"></div>
-    <div class="hero-en-bg">LEARNAL</div>
+    <div class="hero-en-bg">REANARU</div>
     <div class="hero-content fade-in">
       <div class="hero-badge">ELECTRICAL &amp; INTERIOR WORKS</div>
       <h1 class="hero-catch">
@@ -1444,7 +1455,7 @@
     <div class="container">
       <div class="footer-inner">
         <div>
-          <div class="footer-logo">株式会社レアナル</div>
+          <div class="footer-logo">REANARU｜株式会社レアナル</div>
           <p class="footer-desc">大分県中津市を拠点に<br>電気工事・内装仕上工事をワンストップで提供</p>
         </div>
         <nav class="footer-nav">
