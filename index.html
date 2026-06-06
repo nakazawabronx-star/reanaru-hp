@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社レアナル | 電気工事・内装仕上工事 | 大分県中津市</title>
+  <meta name="description" content="大分県中津市の電気工事・内装仕上工事なら株式会社レアナル。コンセント工事から軽天・壁張りまでワンストップ対応。無料相談受付中。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Oswald:wght@400;600;700&family=Zen+Old+Mincho:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS Variables ===== */
+    :root {
+      --navy: #0d1f3c;
+      --navy-light: #162d54;
+      --navy-dark: #091629;
+      --gold: #e8a020;
+      --gold-light: #f0b840;
+      --gold-dark: #c88010;
+      --white: #ffffff;
+      --gray-100: #f8f8f8;
+      --gray-200: #eeeeee;
+      --gray-400: #aaaaaa;
+      --gray-600: #666666;
+      --text-dark: #1a1a1a;
+      --transition: 0.3s ease;
+    }
+
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ===== Typography ===== */
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 700;
+      color: var(--gray-200);
+      letter-spacing: 0.05em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .section-title-jp {
+      font-family: 'Zen Old Mincho', serif;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 400;
+      color: var(--navy);
+      letter-spacing: 0.15em;
+      margin-top: 0.5rem;
+    }
+    .section-head {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      position: relative;
+    }
+    .section-head::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      margin: 1rem auto 0;
+    }
+
+    /* ===== CTA Button ===== */
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all var(--transition);
+      letter-spacing: 0.05em;
+      border: none;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,160,32,0.4); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+    .btn-outline:hover { background: var(--white); color: var(--navy); }
+    .btn-navy {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .btn-navy:hover { background: var(--navy-light); transform: translateY(-2px); }
+    .btn-lg { padding: 1.1rem 2.8rem; font-size: 1.05rem; }
+
+    /* ===== Container ===== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .section { padding: 5rem 0; }
+    .section-alt { background: var(--gray-100); }
+
+    /* ===== Fade-in Animation ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+    .fade-in-delay-5 { transition-delay: 0.5s; }
+    .fade-in-delay-6 { transition-delay: 0.6s; }
+
+    /* ===== HEADER ===== */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all var(--transition);
+    }
+    #header.scrolled {
+      background: rgba(13, 31, 60, 0.97);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      padding: 0.6rem 0;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.06em;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+    .logo span {
+      display: block;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+    }
+    nav.pc-nav { display: flex; align-items: center; gap: 1.8rem; }
+    nav.pc-nav a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: color var(--transition);
+    }
+    nav.pc-nav a:hover { color: var(--gold); }
+    .header-cta { flex-shrink: 0; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--white);
+      transition: all var(--transition);
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(13,31,60,0.98);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color var(--transition);
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .btn { margin-top: 1rem; }
+
+    /* ===== HERO ===== */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--navy-dark);
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    .hero-slider {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+    .hero-slide.active {
+      opacity: 1;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(9,22,41,0.78) 0%, rgba(13,31,60,0.65) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: left;
+      max-width: 680px;
+      margin-left: 0;
+      padding: 3rem 1.5rem;
+    }
+    .hero-en-bg {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(4rem, 15vw, 13rem);
+      font-weight: 700;
+      color: rgba(255,255,255,0.04);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      line-height: 1;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 1.2rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-catch {
+      font-family: 'Zen Old Mincho', serif;
+      font-size: clamp(2.2rem, 6vw, 4.8rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+    }
+    .hero-catch .gold { color: var(--gold); }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+    }
+    .hero-desc {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.05em;
+    }
+    .hero-btns { display: flex; gap: 1rem; justify-content: flex-start; flex-wrap: wrap; }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      z-index: 3;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      animation: scrollLine 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+      50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+      100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
+    }
+
+    /* ===== ABOUT ===== */
+    #about { padding: 6rem 0; }
+    .about-header-wrap { position: relative; margin-bottom: 1rem; }
+    .about-label { position: absolute; top: -1.5rem; left: -1rem; z-index: 0; }
+    .about-title-wrap { position: relative; z-index: 1; text-align: center; padding-top: 1rem; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .stat-card {
+      background: var(--navy);
+      color: var(--white);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gold);
+    }
+    .stat-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-unit { font-size: 1.2rem; }
+    .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; }
+    .about-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .about-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      padding: 2.2rem 1.8rem;
+      text-align: center;
+      position: relative;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .about-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .about-card-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+    .about-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+    }
+    .about-icon svg { width: 30px; height: 30px; fill: var(--gold); }
+    .about-card h3 {
+      font-family: 'Zen Old Mincho', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.8rem;
+      line-height: 1.4;
+    }
+    .about-card p { font-size: 0.88rem; color: var(--gray-600); line-height: 1.8; }
+    .about-cta { text-align: center; }
+
+    /* ===== WORKS ===== */
+    #works { padding: 6rem 0; background: var(--gray-100); }
+    .works-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 2.5rem;
+      border-bottom: 2px solid var(--gray-200);
+    }
+    .tab-btn {
+      padding: 0.8rem 2rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--gray-400);
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all var(--transition);
+      letter-spacing: 0.05em;
+    }
+    .tab-btn:hover { color: var(--navy); }
+    .tab-btn.active { color: var(--navy); border-bottom-color: var(--gold); }
+    .tab-content { display: none; }
+    .tab-content.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .work-card {
+      background: var(--white);
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .work-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+    .work-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #1a2f50 0%, #2a4a7a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .work-img::before {
+      content: '';
+    }
+    .work-img .work-cat {
+      position: absolute;
+      top: 0.7rem;
+      left: 0.7rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      letter-spacing: 0.05em;
+    }
+    .work-img-el { background-image: url('images/works-electric-01.png'); background-size: cover; background-position: center; }
+    .work-img-in { background-image: url('images/works-interior-01.png'); background-size: cover; background-position: center; }
+    .work-img-el.v2 { background-image: url('images/works-electric-02.png'); background-size: cover; background-position: center; }
+    .work-img-el.v3 { background-image: url('images/works-electric-03.png'); background-size: cover; background-position: center; }
+    .work-img-in.v2 { background-image: url('images/works-interior-02.png'); background-size: cover; background-position: center; }
+    .work-img-in.v3 { background-image: url('images/works-interior-03.png'); background-size: cover; background-position: center; }
+    .work-info { padding: 1.2rem; }
+    .work-info h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .work-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .work-tag {
+      font-size: 0.72rem;
+      color: var(--gray-600);
+      background: var(--gray-100);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+    .works-cta { text-align: center; margin-top: 2.5rem; }
+
+    /* ===== FLOW ===== */
+    #flow { padding: 6rem 0; }
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .flow-grid::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: calc(16.67% + 40px);
+      right: calc(16.67% + 40px);
+      height: 2px;
+      background: var(--gold);
+      z-index: 0;
+    }
+    .flow-item {
+      text-align: center;
+      padding: 0 1rem 2rem;
+      position: relative;
+    }
+    .flow-num {
+      width: 80px;
+      height: 80px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      position: relative;
+      z-index: 1;
+      border: 3px solid var(--gold);
+    }
+    .flow-num .step { font-size: 0.6rem; letter-spacing: 0.1em; color: var(--gold); }
+    .flow-num .num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .flow-arrow {
+      position: absolute;
+      right: -12px;
+      top: 34px;
+      z-index: 2;
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+    .flow-item:nth-child(3) .flow-arrow,
+    .flow-item:nth-child(6) .flow-arrow { display: none; }
+    .flow-item h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .flow-item p { font-size: 0.82rem; color: var(--gray-600); line-height: 1.7; }
+    .flow-cta { text-align: center; margin-top: 3rem; }
+
+    /* ===== FAQ ===== */
+    #faq { padding: 6rem 0; background: var(--gray-100); }
+    .faq-list { max-width: 780px; margin: 0 auto 3rem; }
+    .faq-item {
+      border-bottom: 1px solid var(--gray-200);
+      background: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .faq-q {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.3rem 1.5rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background var(--transition);
+    }
+    .faq-q:hover { background: #f5f7fb; }
+    .faq-q-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--navy);
+      color: var(--gold);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .faq-q-text { flex: 1; font-size: 0.95rem; font-weight: 700; color: var(--navy); line-height: 1.5; }
+    .faq-toggle {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform var(--transition), background var(--transition);
+    }
+    .faq-toggle::after {
+      content: '+';
+      color: var(--navy);
+      font-size: 1.1rem;
+      line-height: 1;
+      transition: transform var(--transition);
+    }
+    .faq-item.open .faq-toggle { background: var(--navy); }
+    .faq-item.open .faq-toggle::after { content: '−'; color: var(--white); }
+    .faq-a {
+      display: none;
+      padding: 0 1.5rem 1.3rem 4rem;
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      line-height: 1.9;
+    }
+    .faq-item.open .faq-a { display: block; }
+    .faq-cta { text-align: center; }
+
+    /* ===== MESSAGE ===== */
+    #message { padding: 6rem 0; }
+    .message-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .message-photo {
+      aspect-ratio: 3/4;
+      background-image: url('images/message-01.png');
+      background-size: cover;
+      background-position: center top;
+      position: relative;
+    }
+    .message-photo::after {
+      content: '';
+    }
+    .message-content .lead {
+      font-family: 'Zen Old Mincho', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .message-content p {
+      font-size: 0.92rem;
+      color: var(--gray-600);
+      line-height: 2;
+      margin-bottom: 1rem;
+    }
+    .message-sig {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray-200);
+    }
+    .message-sig .company-name { font-size: 0.85rem; color: var(--gray-600); margin-bottom: 0.3rem; }
+    .message-sig .name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .message-sig .name span { font-size: 0.8rem; color: var(--gray-400); margin-left: 0.5rem; }
+
+    /* ===== COMPANY ===== */
+    #company { padding: 6rem 0; background: var(--gray-100); }
+    .company-table {
+      width: 100%;
+      max-width: 780px;
+      margin: 0 auto 3rem;
+      border-collapse: collapse;
+    }
+    .company-table tr { border-bottom: 1px solid var(--gray-200); }
+    .company-table tr:last-child { border-bottom: none; }
+    .company-table th {
+      width: 180px;
+      padding: 1.2rem 1.5rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--navy);
+      background: rgba(13,31,60,0.05);
+      text-align: left;
+      vertical-align: top;
+    }
+    .company-table td {
+      padding: 1.2rem 1.5rem;
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+      background: var(--white);
+    }
+    .company-cta { text-align: center; }
+
+    /* ===== MAP ===== */
+    #map { padding: 0; }
+    .map-container iframe {
+      display: block;
+      width: 100%;
+      height: 420px;
+      border: none;
+    }
+
+    /* ===== RECRUIT ===== */
+    #recruit { padding: 6rem 0; }
+    .recruit-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .recruit-card {
+      background: var(--navy);
+      color: var(--white);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .recruit-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 120px;
+      height: 120px;
+      background: rgba(232,160,32,0.08);
+      border-radius: 50%;
+      transform: translate(40px, -40px);
+    }
+    .recruit-card-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+    .recruit-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .recruit-card p { font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 1.5rem; }
+    .recruit-detail dt {
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.2rem;
+    }
+    .recruit-detail dd {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 0.8rem;
+    }
+    .recruit-cta { text-align: center; }
+
+    /* ===== CONTACT ===== */
+    #contact { padding: 6rem 0; background: var(--navy); }
+    #contact .section-title { color: var(--white); }
+    #contact .section-title-jp { color: rgba(255,255,255,0.5); }
+    #contact .section-head::after { background: var(--gold); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+    }
+    .contact-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .contact-phone {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+    .contact-phone a { color: var(--white); }
+    .contact-hours { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 2rem; }
+    .contact-addr { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.8; }
+    .contact-form .form-row { margin-bottom: 1.2rem; }
+    .contact-form label {
+      display: block;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.05em;
+    }
+    .contact-form label .req {
+      color: var(--gold);
+      font-size: 0.75rem;
+      margin-left: 0.4rem;
+    }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.9rem;
+      border-radius: 2px;
+      transition: border-color var(--transition), background var(--transition);
+      outline: none;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--gold);
+      background: rgba(255,255,255,0.12);
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .contact-form select option { background: var(--navy-dark); color: var(--white); }
+    .contact-form textarea { height: 150px; resize: vertical; }
+    .contact-form .form-submit { text-align: center; margin-top: 1.5rem; }
+    .contact-form .btn-gold { padding: 1rem 3.5rem; font-size: 1rem; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy-dark);
+      padding: 3rem 0 1.5rem;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+    .footer-desc { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.8; }
+    .footer-nav {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+    }
+    .footer-nav a {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.05em;
+      transition: color var(--transition);
+    }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-copy {
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.08em;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .about-stats { grid-template-columns: repeat(3, 1fr); }
+      .about-cards { grid-template-columns: 1fr; gap: 1rem; }
+      .tab-content.active { grid-template-columns: repeat(2, 1fr); }
+      .flow-grid { grid-template-columns: repeat(2, 1fr); }
+      .flow-grid::before { display: none; }
+      .flow-item:nth-child(3) .flow-arrow { display: block; }
+      .flow-item:nth-child(2) .flow-arrow,
+      .flow-item:nth-child(4) .flow-arrow { display: none; }
+      .message-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .message-photo { aspect-ratio: 4/3; max-width: 320px; margin: 0 auto; }
+      .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+      .footer-nav { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .section { padding: 4rem 0; }
+      nav.pc-nav { display: none; }
+      .header-cta { display: none; }
+      .hamburger { display: flex; }
+      .about-stats { grid-template-columns: 1fr; gap: 1rem; }
+      .tab-content.active { grid-template-columns: 1fr; }
+      .flow-grid { grid-template-columns: 1fr; }
+      .flow-item .flow-arrow { display: none !important; }
+      .recruit-cards { grid-template-columns: 1fr; }
+      .company-table th { width: 120px; font-size: 0.82rem; padding: 1rem; }
+      .company-table td { font-size: 0.85rem; padding: 1rem; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .works-tabs { overflow-x: auto; }
+      .tab-btn { white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#" class="logo">
+          LEARNAL
+          <span>株式会社レアナル｜電気工事・内装仕上工事</span>
+        </a>
+        <nav class="pc-nav">
+          <a href="#about">選ばれる理由</a>
+          <a href="#works">施工実績</a>
+          <a href="#flow">依頼の流れ</a>
+          <a href="#faq">FAQ</a>
+          <a href="#company">会社概要</a>
+          <a href="#recruit">採用情報</a>
+        </nav>
+        <a href="#contact" class="btn btn-gold header-cta">無料でご相談する</a>
+        <button class="hamburger" id="hamburger" aria-label="メニュー">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#works" class="mobile-link">Works</a>
+    <a href="#flow" class="mobile-link">Flow</a>
+    <a href="#faq" class="mobile-link">FAQ</a>
+    <a href="#company" class="mobile-link">Company</a>
+    <a href="#recruit" class="mobile-link">Recruit</a>
+    <a href="#contact" class="btn btn-gold btn-lg mobile-link">無料でご相談する</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="hero-slider">
+      <div class="hero-slide active" style="background-image: url('images/hero-01.png')"></div>
+      <div class="hero-slide" style="background-image: url('images/hero-02.png')"></div>
+      <div class="hero-slide" style="background-image: url('images/hero-03.png')"></div>
+      <div class="hero-slide" style="background-image: url('images/hero-04.png')"></div>
+      <div class="hero-slide" style="background-image: url('images/hero-05.png')"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-en-bg">LEARNAL</div>
+    <div class="hero-content fade-in">
+      <div class="hero-badge">ELECTRICAL &amp; INTERIOR WORKS</div>
+      <h1 class="hero-catch">
+        電気と内装、<br><span class="gold">ぜんぶ</span>お任せください。
+      </h1>
+      <p class="hero-sub">大分県中津市を拠点に、電気工事・内装仕上工事をワンストップで対応</p>
+      <p class="hero-desc">コンセント1個の工事から、照明・軽天・壁張りまで。現場の悩みを素早く解決します。</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-gold btn-lg">無料でご相談する</a>
+        <a href="#works" class="btn btn-outline btn-lg">施工実績を見る</a>
+      </div>
+    </div>
+    <div class="hero-scroll">SCROLL</div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-head fade-in">
+        <div class="section-title">ABOUT</div>
+        <div class="section-title-jp">選ばれる理由</div>
+      </div>
+
+      <div class="about-stats">
+        <div class="stat-card fade-in fade-in-delay-1">
+          <div class="stat-number">20<span class="stat-unit">年以上</span></div>
+          <div class="stat-label">地域に根ざした実績</div>
+        </div>
+        <div class="stat-card fade-in fade-in-delay-2">
+          <div class="stat-number">13<span class="stat-unit">種</span></div>
+          <div class="stat-label">対応可能な工事種別</div>
+        </div>
+        <div class="stat-card fade-in fade-in-delay-3">
+          <div class="stat-number">2<span class="stat-unit">業種</span></div>
+          <div class="stat-label">電気＋内装 ワンストップ対応</div>
+        </div>
+      </div>
+
+      <div class="about-cards">
+        <div class="about-card fade-in fade-in-delay-1">
+          <div class="about-card-num">REASON 01</div>
+          <div class="about-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3>電気工事と内装工事を<br>1社でワンストップ対応</h3>
+          <p>コンセント増設から軽天・壁張りまで、2つの専門工事を1社にまとめて依頼できます。窓口が一本化されるため、スケジュール調整や費用の無駄がなくなります。</p>
+        </div>
+        <div class="about-card fade-in fade-in-delay-2">
+          <div class="about-card-num">REASON 02</div>
+          <div class="about-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+          </div>
+          <h3>大分県北部を中心に<br>幅広いエリアに対応</h3>
+          <p>中津市を拠点に、大分県内はもちろん、近隣県にも柔軟に対応しています。地域密着だからこそ実現できるスピーディーな現地確認と対応力が強みです。</p>
+        </div>
+        <div class="about-card fade-in fade-in-delay-3">
+          <div class="about-card-num">REASON 03</div>
+          <div class="about-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+          </div>
+          <h3>小規模から大型案件まで<br>丁寧にお引き受け</h3>
+          <p>「コンセントを1個追加したい」という小さなご依頼から、店舗・工場の大規模改修まで、規模を問わず真摯に対応いたします。まずはお気軽にご相談ください。</p>
+        </div>
+      </div>
+
+      <div class="about-cta fade-in">
+        <a href="#contact" class="btn btn-navy btn-lg">無料でご相談する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORKS ===== -->
+  <section id="works" class="section section-alt">
+    <div class="container">
+      <div class="section-head fade-in">
+        <div class="section-title">WORKS</div>
+        <div class="section-title-jp">施工実績</div>
+      </div>
+
+      <div class="works-tabs fade-in">
+        <button class="tab-btn active" data-tab="electric">電気工事</button>
+        <button class="tab-btn" data-tab="interior">内装仕上工事</button>
+      </div>
+
+      <div class="tab-content active" id="tab-electric">
+        <div class="work-card fade-in">
+          <div class="work-img work-img-el">
+            <span class="work-cat">電気工事</span>
+          </div>
+          <div class="work-info">
+            <h3>事務所コンセント・照明増設工事</h3>
+            <div class="work-meta">
+              <span class="work-tag">中津市</span>
+              <span class="work-tag">事務所</span>
+              <span class="work-tag">コンセント工事・照明設備工事</span>
+            </div>
+          </div>
+        </div>
+        <div class="work-card fade-in fade-in-delay-1">
+          <div class="work-img work-img-el v2">
+            <span class="work-cat">電気工事</span>
+          </div>
+          <div class="work-info">
+            <h3>店舗ネオンサイン設備工事</h3>
+            <div class="work-meta">
+              <span class="work-tag">中津市</span>
+              <span class="work-tag">飲食店</span>
+              <span class="work-tag">ネオン設備工事</span>
+            </div>
+          </div>
+        </div>
+        <div class="work-card fade-in fade-in-delay-2">
+          <div class="work-img work-img-el v3">
+            <span class="work-cat">電気工事</span>
+          </div>
+          <div class="work-info">
+            <h3>工場引込線・電気防食工事</h3>
+            <div class="work-meta">
+              <span class="work-tag">宇佐市</span>
+              <span class="work-tag">工場</span>
+              <span class="work-tag">引込線工事・電気防食工事</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-interior">
+        <div class="work-card fade-in">
+          <div class="work-img work-img-in">
+            <span class="work-cat">内装仕上工事</span>
+          </div>
+          <div class="work-info">
+            <h3>オフィス軽天・間仕切り工事</h3>
+            <div class="work-meta">
+              <span class="work-tag">中津市</span>
+              <span class="work-tag">オフィス</span>
+              <span class="work-tag">軽天工事・間仕切り工事</span>
+            </div>
+          </div>
+        </div>
+        <div class="work-card fade-in fade-in-delay-1">
+          <div class="work-img work-img-in v2">
+            <span class="work-cat">内装仕上工事</span>
+          </div>
+          <div class="work-info">
+            <h3>住宅壁張り・防音工事</h3>
+            <div class="work-meta">
+              <span class="work-tag">豊後高田市</span>
+              <span class="work-tag">住宅</span>
+              <span class="work-tag">壁張り工事・防音工事</span>
+            </div>
+          </div>
+        </div>
+        <div class="work-card fade-in fade-in-delay-2">
+          <div class="work-img work-img-in v3">
+            <span class="work-cat">内装仕上工事</span>
+          </div>
+          <div class="work-info">
+            <h3>和室リフォーム 畳・ふすま工事</h3>
+            <div class="work-meta">
+              <span class="work-tag">中津市</span>
+              <span class="work-tag">住宅</span>
+              <span class="work-tag">畳・ふすま工事</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="works-cta fade-in">
+        <a href="#contact" class="btn btn-navy btn-lg">施工のご相談はこちら</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FLOW ===== -->
+  <section id="flow" class="section">
+    <div class="container">
+      <div class="section-head fade-in">
+        <div class="section-title">FLOW</div>
+        <div class="section-title-jp">依頼の流れ</div>
+      </div>
+
+      <div class="flow-grid">
+        <div class="flow-item fade-in fade-in-delay-1">
+          <div class="flow-num"><span class="step">STEP</span><span class="num">01</span></div>
+          <div class="flow-arrow">→</div>
+          <h3>ご相談</h3>
+          <p>お電話またはWebフォームからお気軽にご連絡ください。どんな小さなお悩みでもOKです。</p>
+        </div>
+        <div class="flow-item fade-in fade-in-delay-2">
+          <div class="flow-num"><span class="step">STEP</span><span class="num">02</span></div>
+          <div class="flow-arrow">→</div>
+          <h3>現地調査</h3>
+          <p>担当者がお伺いし、現場の状況を詳しく確認します。ご要望をしっかりとヒアリングします。</p>
+        </div>
+        <div class="flow-item fade-in fade-in-delay-3">
+          <div class="flow-num"><span class="step">STEP</span><span class="num">03</span></div>
+          <h3>お見積り</h3>
+          <p>現地調査をもとに詳細なお見積りをご提示します。内容にご納得いただいてから先に進めます。</p>
+        </div>
+        <div class="flow-item fade-in fade-in-delay-4">
+          <div class="flow-num"><span class="step">STEP</span><span class="num">04</span></div>
+          <div class="flow-arrow">→</div>
+          <h3>ご契約</h3>
+          <p>お見積り内容にご同意いただいたらご契約となります。着工日程を調整いたします。</p>
+        </div>
+        <div class="flow-item fade-in fade-in-delay-5">
+          <div class="flow-num"><span class="step">STEP</span><span class="num">05</span></div>
+          <div class="flow-arrow">→</div>
+          <h3>着工</h3>
+          <p>経験豊富なスタッフが丁寧に施工します。工事中もご不明な点はいつでもご質問ください。</p>
+        </div>
+        <div class="flow-item fade-in fade-in-delay-6">
+          <div class="flow-num"><span class="step">STEP</span><span class="num">06</span></div>
+          <h3>完成・お引渡し</h3>
+          <p>施工完了後、仕上がりをご確認いただきお引渡しです。工事後のサポートも対応します。</p>
+        </div>
+      </div>
+
+      <div class="flow-cta fade-in">
+        <a href="#contact" class="btn btn-gold btn-lg">まずは無料相談する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="section section-alt">
+    <div class="container">
+      <div class="section-head fade-in">
+        <div class="section-title">FAQ</div>
+        <div class="section-title-jp">よくある質問</div>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item fade-in">
+          <div class="faq-q">
+            <div class="faq-q-icon">Q</div>
+            <div class="faq-q-text">まずは相談だけでも大丈夫ですか？</div>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-a">もちろんです。「どんな工事が必要か分からない」「費用の目安を知りたい」といったお問い合わせも大歓迎です。現地調査・お見積りは無料で承っておりますので、まずはお気軽にご連絡ください。</div>
+        </div>
+        <div class="faq-item fade-in fade-in-delay-1">
+          <div class="faq-q">
+            <div class="faq-q-icon">Q</div>
+            <div class="faq-q-text">電気工事と内装工事、両方まとめて依頼できますか？</div>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-a">はい、弊社は電気工事と内装仕上工事の両方に対応しております。2つの工事を1社にまとめてご依頼いただくことで、業者間の調整の手間が省け、スケジュールや費用の面でもメリットが生まれます。ぜひワンストップでご活用ください。</div>
+        </div>
+        <div class="faq-item fade-in fade-in-delay-2">
+          <div class="faq-q">
+            <div class="faq-q-icon">Q</div>
+            <div class="faq-q-text">現場の場所が中津市から遠くても対応できますか？</div>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-a">大分県内はもちろん、近隣の福岡・熊本方面にも対応しております。まずはお気軽にご相談ください。場所・工事内容を確認したうえで、対応可否とおおよその交通費について丁寧にご説明いたします。</div>
+        </div>
+        <div class="faq-item fade-in fade-in-delay-3">
+          <div class="faq-q">
+            <div class="faq-q-icon">Q</div>
+            <div class="faq-q-text">小規模な工事（コンセント1個追加など）でも依頼できますか？</div>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-a">はい、小さな工事でも喜んで承ります。「コンセントを1か所増やしたい」「照明器具を交換したい」といった小規模なご依頼も、大切なお客様のお悩みとして丁寧に対応いたします。</div>
+        </div>
+        <div class="faq-item fade-in fade-in-delay-4">
+          <div class="faq-q">
+            <div class="faq-q-icon">Q</div>
+            <div class="faq-q-text">見積もりは無料ですか？</div>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-a">現地調査からお見積りの作成まで、すべて無料で対応しております。お見積り内容をご確認いただき、ご納得いただいた後に初めてご契約となりますので、費用が発生する前にキャンセルいただくことも可能です。</div>
+        </div>
+        <div class="faq-item fade-in fade-in-delay-5">
+          <div class="faq-q">
+            <div class="faq-q-icon">Q</div>
+            <div class="faq-q-text">工事後のアフターフォローはありますか？</div>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-a">はい、工事完了後も何かお困りのことがあればお気軽にご連絡ください。施工後の不具合や気になる点については、誠実に対応いたします。地域密着の会社として、長くお付き合いいただけるよう努めております。</div>
+        </div>
+        <div class="faq-item fade-in fade-in-delay-6">
+          <div class="faq-q">
+            <div class="faq-q-icon">Q</div>
+            <div class="faq-q-text">未経験でも採用してもらえますか？</div>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-a">はい、未経験の方も歓迎しております。先輩スタッフがしっかりサポートしますので、ゼロから技術を習得できる環境です。「手に職をつけたい」「ものづくりが好き」という方のご応募をお待ちしております。まずはお気軽にお問い合わせください。</div>
+        </div>
+      </div>
+
+      <div class="faq-cta fade-in">
+        <a href="#contact" class="btn btn-navy btn-lg">お問い合わせはこちら</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MESSAGE ===== -->
+  <section id="message" class="section">
+    <div class="container">
+      <div class="section-head fade-in">
+        <div class="section-title">MESSAGE</div>
+        <div class="section-title-jp">代表挨拶</div>
+      </div>
+      <div class="message-inner">
+        <div class="message-photo fade-in"></div>
+        <div class="message-content fade-in fade-in-delay-1">
+          <p class="lead">「電気と内装、どちらも安心して<br>まかせられる会社でありたい。」</p>
+          <p>株式会社レアナルは、大分県中津市を拠点に電気工事・内装仕上工事を手がけてまいりました。コンセント工事や照明設備から、軽天・壁張り・防音工事まで、幅広い工事に対応できることが私たちの強みです。</p>
+          <p>地域のお客様からいただく「何でも相談できる」「1社でまとめてお願いできて助かる」という言葉が、私たちの何よりの励みです。これからも「安全・丁寧・誠実」を大切に、現場の一つひとつに全力で取り組んでまいります。</p>
+          <p>工事のことで少しでも気になることがあれば、どうかお気軽にご連絡ください。まずはお話を聞かせていただくことから始めます。</p>
+          <div class="message-sig">
+            <div class="company-name">株式会社レアナル</div>
+            <div class="name">代表取締役 <span>Representative Director</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMPANY ===== -->
+  <section id="company" class="section section-alt">
+    <div class="container">
+      <div class="section-head fade-in">
+        <div class="section-title">COMPANY</div>
+        <div class="section-title-jp">会社概要</div>
+      </div>
+      <table class="company-table fade-in">
+        <tr>
+          <th>会社名</th>
+          <td>株式会社レアナル</td>
+        </tr>
+        <tr>
+          <th>所在地</th>
+          <td>〒871-0000 大分県中津市大字牛神34-7</td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><a href="tel:0979779282" style="color:var(--navy);font-weight:700;">0979-77-9282</a></td>
+        </tr>
+        <tr>
+          <th>業種</th>
+          <td>電気工事・内装仕上工事</td>
+        </tr>
+        <tr>
+          <th>主要業務</th>
+          <td>
+            【電気工事】コンセント工事 / 照明設備工事 / ネオン設備工事 / 引込線工事 / 交通信号設備工事 / 避雷針工事 / 電気防食工事<br>
+            【内装仕上工事】軽天工事 / 天井の内装仕上 / 壁張り工事 / 間仕切り工事 / 防音工事 / 畳・ふすまの工事
+          </td>
+        </tr>
+        <tr>
+          <th>対応エリア</th>
+          <td>大分県内全域・近隣県（詳しくはお問い合わせください）</td>
+        </tr>
+      </table>
+      <div class="company-cta fade-in">
+        <a href="#contact" class="btn btn-navy btn-lg">お問い合わせ・無料相談</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAP ===== -->
+  <section id="map">
+    <div class="map-container fade-in">
+      <iframe
+        src="https://maps.google.com/maps?q=%E5%A4%A7%E5%88%86%E7%9C%8C%E4%B8%AD%E6%B4%A5%E5%B8%82%E5%A4%A7%E5%AD%97%E7%89%9B%E7%A5%9134-7&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        title="株式会社レアナル 地図"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- ===== RECRUIT ===== -->
+  <section id="recruit" class="section">
+    <div class="container">
+      <div class="section-head fade-in">
+        <div class="section-title">RECRUIT</div>
+        <div class="section-title-jp">採用情報</div>
+      </div>
+      <div class="recruit-cards">
+        <div class="recruit-card fade-in fade-in-delay-1">
+          <div class="recruit-card-num">POSITION 01</div>
+          <h3>電気工事スタッフ</h3>
+          <p>コンセント工事・照明設備・引込線工事など、幅広い電気工事を担当していただきます。未経験者も先輩スタッフが丁寧に指導します。</p>
+          <dl class="recruit-detail">
+            <dt>雇用形態</dt>
+            <dd>正社員・アルバイト（相談可）</dd>
+            <dt>対象</dt>
+            <dd>経験者優遇・未経験者歓迎</dd>
+            <dt>資格</dt>
+            <dd>第二種電気工事士（入社後取得支援あり）</dd>
+          </dl>
+          <a href="#contact" class="btn btn-gold">この職種に応募する</a>
+        </div>
+        <div class="recruit-card fade-in fade-in-delay-2">
+          <div class="recruit-card-num">POSITION 02</div>
+          <h3>内装仕上工事スタッフ</h3>
+          <p>軽天・壁張り・間仕切り・防音工事など、内装仕上工事全般を担当していただきます。手に職をつけたい方、大歓迎です。</p>
+          <dl class="recruit-detail">
+            <dt>雇用形態</dt>
+            <dd>正社員・アルバイト（相談可）</dd>
+            <dt>対象</dt>
+            <dd>経験者優遇・未経験者歓迎</dd>
+            <dt>資格</dt>
+            <dd>資格不問（入社後取得支援あり）</dd>
+          </dl>
+          <a href="#contact" class="btn btn-gold">この職種に応募する</a>
+        </div>
+      </div>
+      <div class="recruit-cta fade-in">
+        <a href="#contact" class="btn btn-navy btn-lg">採用についてお問い合わせ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-head fade-in">
+        <div class="section-title">CONTACT</div>
+        <div class="section-title-jp">お問い合わせ</div>
+      </div>
+      <div class="contact-inner">
+        <div class="contact-info fade-in">
+          <h3>お電話でのご相談</h3>
+          <div class="contact-phone"><a href="tel:0979779282">0979-77-9282</a></div>
+          <p class="contact-hours">受付時間：平日 8:00〜18:00</p>
+          <div class="contact-addr">
+            <p>株式会社レアナル</p>
+            <p>〒871-0000</p>
+            <p>大分県中津市大字牛神34-7</p>
+          </div>
+        </div>
+        <div class="contact-form fade-in fade-in-delay-1">
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <label>お名前<span class="req">必須</span></label>
+              <input type="text" name="name" placeholder="例：山田 太郎" required>
+            </div>
+            <div class="form-row">
+              <label>会社名</label>
+              <input type="text" name="company" placeholder="例：株式会社〇〇">
+            </div>
+            <div class="form-row">
+              <label>メールアドレス<span class="req">必須</span></label>
+              <input type="email" name="email" placeholder="例：info@example.com" required>
+            </div>
+            <div class="form-row">
+              <label>電話番号</label>
+              <input type="tel" name="tel" placeholder="例：0979-77-0000">
+            </div>
+            <div class="form-row">
+              <label>お問い合わせ種別<span class="req">必須</span></label>
+              <select name="type" required>
+                <option value="" disabled selected>選択してください</option>
+                <option value="electric">電気工事のご相談</option>
+                <option value="interior">内装仕上工事のご相談</option>
+                <option value="estimate">お見積り依頼</option>
+                <option value="recruit">採用について</option>
+                <option value="other">その他</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label>ご相談内容<span class="req">必須</span></label>
+              <textarea name="message" placeholder="工事内容、現場の場所、ご要望などをお聞かせください" required></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn btn-gold btn-lg">送信する</button>
+            </div>
+          </form>
+          <div id="formSuccess" style="display:none; text-align:center; padding:2rem; color:var(--gold); font-size:1.05rem; font-weight:700;">
+            お問い合わせありがとうございます。<br>担当者よりご連絡いたします。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">株式会社レアナル</div>
+          <p class="footer-desc">大分県中津市を拠点に<br>電気工事・内装仕上工事をワンストップで提供</p>
+        </div>
+        <nav class="footer-nav">
+          <a href="#about">選ばれる理由</a>
+          <a href="#works">施工実績</a>
+          <a href="#flow">依頼の流れ</a>
+          <a href="#faq">よくある質問</a>
+          <a href="#message">代表挨拶</a>
+          <a href="#company">会社概要</a>
+          <a href="#recruit">採用情報</a>
+          <a href="#contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2024 株式会社レアナル All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Scroll fade-in (IntersectionObserver)
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // Works tabs
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        const tabId = 'tab-' + btn.dataset.tab;
+        const target = document.getElementById(tabId);
+        if (target) {
+          target.classList.add('active');
+          target.querySelectorAll('.work-card').forEach(card => {
+            card.classList.remove('visible');
+            void card.offsetWidth;
+            setTimeout(() => card.classList.add('visible'), 50);
+          });
+        }
+      });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 72;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Contact form mock submission
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('contactForm');
+      const success = document.getElementById('formSuccess');
+      form.style.display = 'none';
+      success.style.display = 'block';
+    }
+
+    // Hero Slideshow
+    const slides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 5000);
+  </script>
+</body>
+</html>
